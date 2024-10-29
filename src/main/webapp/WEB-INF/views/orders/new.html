@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Order</title>
+</head>
+<body>
+<h1>New Order</h1>
+<form action="/orders" method="post">
+    <label for="orderNumber">Order number:</label>
+    <input type="number" id="orderNumber" name="orderNumber" required>
+    <br>
+    <label for="owner">Client:</label>
+    <select id="owner" name="owner.id" required>
+        <option th:each="client : ${clients}"
+                th:value="${client.id}"
+                th:text="${client.organizationName}"
+                th:selected="${client.id == order.owner.id}">
+        </option>
+    </select>
+    <br>
+    <input type="submit" value="Create Order">
+</form>
+<a href="/orders">Back</a>
+</body>
+</html>

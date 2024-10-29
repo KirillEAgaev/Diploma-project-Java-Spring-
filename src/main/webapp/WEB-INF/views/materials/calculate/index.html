@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculation of material</title>
+</head>
+<body>
+<h1>Select material</h1>
+<form action="/materials/calculate" method="post">
+    <select name="materialId" required>
+        <th:block th:each="material : ${materials}">
+            <option th:value="${material.markOfMaterial}" th:text="${material.markOfMaterial}"></option>
+        </th:block>
+    </select>
+    <div>
+        <label>Quantity (kg): <input type="number" name="quantity" required/></label>
+    </div>
+    <div>
+        <label>Diameter (m): <input type="number" name="diameter" step="any" /></label>
+    </div>
+    <div>
+        <label>Width (m): <input type="number" name="width" step="any" /></label>
+    </div>
+    <div>
+        <label>Height (m): <input type="number" name="height" step="any" /></label>
+    </div>
+    <button type="submit">Calculate</button>
+</form>
+</body>
+</html>

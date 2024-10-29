@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Material</title>
+</head>
+<body>
+
+<p th:text="${material.getId()}">ID</p>
+<p th:text="${material.getTypeOfMaterial()}">Material type</p>
+<p th:text="${material.getShapeOfMaterial()}">Material shape</p>
+<p th:text="${material.getMarkOfMaterial()}">Material mark</p>
+<p th:text="${material.getPricePer3m()}">Price for 3 meters</p>
+<p th:text="${material.getDensityOfMaterial()}">Density of the material</p>
+
+<a th:href="@{/materials/{id}/edit(id=${material.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/materials/{id}(id=${material.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>

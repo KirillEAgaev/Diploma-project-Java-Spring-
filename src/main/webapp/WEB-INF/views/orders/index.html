@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+<h1>Orders</h1>
+<a href="/orders/new">Create New Order</a>
+<table>
+    <tr>
+        <th>Order Number</th>
+        <th>Client</th>
+        <th>Date of Order</th>
+        <th>Actions</th>
+    </tr>
+    <th:block th:each="order : ${orders}">
+        <tr>
+            <td th:text="${order.orderNumber}"></td>
+            <td th:text="${order.owner.organizationName}"></td>
+            <td th:text="${order.dateOfOrder}"></td>
+            <td>
+                <a th:href="@{/orders/{id}(id=${order.id})}">View</a>
+                <a th:href="@{/orders/{id}/edit(id=${order.id})}">Edit</a>
+                <form th:action="@{/orders/{id}/delete(id=${order.id})}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

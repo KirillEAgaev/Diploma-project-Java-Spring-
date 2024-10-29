@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Order</title>
+</head>
+<body>
+<h1>Edit Order number: <span th:text="${order.orderNumber}"></span></h1>
+<form action="/orders/{id}" method="post" th:action="@{/orders/{id}(id=${order.id})}">
+    <label for="orderNumber">Order number:</label>
+    <input type="number" id="orderNumber" name="orderNumber" th:value="${order.orderNumber}" required>
+    <br>
+    <label for="owner">Client:</label>
+    <select id="owner" name="owner.id" required>
+        <option th:each="client : ${clients}"
+                th:value="${client.id}"
+                th:text="${client.organizationName}"
+                th:selected="${client.id == order.owner.id}">
+        </option>
+    </select>
+    <br>
+    <input type="submit" value="Update Order">
+</form>
+<a href="/orders">Back</a>
+</body>
+</html>

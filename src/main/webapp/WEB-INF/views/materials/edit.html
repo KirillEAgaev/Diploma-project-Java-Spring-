@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit material</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/materials/{id}(id=${material.getId()})}" th:object="${material}">
+    <label for="typeOfMaterial">Enter the material type</label>
+    <input type="text" th:field="*{typeOfMaterial}" id="typeOfMaterial"/>
+    <div style="color:red" th:if="${#fields.hasErrors('typeOfMaterial')}" th:errors="*{typeOfMaterial}">Material type error</div>
+    <br/>
+
+    <label for="shapeOfMaterial">Enter the material shape</label>
+    <input type="text" th:field="*{shapeOfMaterial}" id="shapeOfMaterial"/>
+    <div style="color:red" th:if="${#fields.hasErrors('shapeOfMaterial')}" th:errors="*{shapeOfMaterial}">Material shape error</div>
+    <br/>
+
+    <label for="markOfMaterial">Enter the material mark</label>
+    <input type="text" th:field="*{markOfMaterial}" id="markOfMaterial"/>
+    <div style="color:red" th:if="${#fields.hasErrors('markOfMaterial')}" th:errors="*{markOfMaterial}">Material mark error</div>
+    <br/>
+
+    <label for="pricePer3m">Enter price for 3 meters</label>
+    <input type="text" th:field="*{pricePer3m}" id="pricePer3m"/>
+    <div style="color:red" th:if="${#fields.hasErrors('pricePer3m')}" th:errors="*{pricePer3m}">Price error</div>
+    <br/>
+
+    <label for="density">Enter the density of the material</label>
+    <input type="text" th:field="*{densityOfMaterial}" id="density"/>
+    <div style="color:red" th:if="${#fields.hasErrors('densityOfMaterial')}" th:errors="*{densityOfMaterial}">Density error</div>
+    <br/>
+
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>

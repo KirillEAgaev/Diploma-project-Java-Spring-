@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculation results</title>
+</head>
+<body>
+<h1>Calculation results</h1>
+<p>Materials: <span th:text="${material.markOfMaterial}"></span></p>
+<p>Volume: <span th:text="${volume}"></span> m³</p>
+<p>Cross-sectional area: <span th:text="${sectionArea}"></span> m²</p>
+<p>Number of rods: <span th:text="${numberOfBars}"></span></p>
+<a href="/materials/calculate">New calculation</a>
+</body>
+</html>
